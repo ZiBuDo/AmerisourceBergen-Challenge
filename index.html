@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="icon" href="http://projects.miscthings.xyz/tech/img/icon.png">
+    <title>Temple Analytics Challenge 2016</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        AmerisourceBergen Data
+                    </a>
+					
+                </li>
+                <li>
+                    <a href="#intro">Introduction</a>
+                </li>
+                <li>
+                    <a href="#scatter">Scatter Plots</a>
+                </li>
+                <li>
+                    <a href="#column">Column Range</a>
+                </li>
+				<li>
+                    <a href="#composition">Product Composition</a>
+                </li>
+				<li>
+                    <a href="#categorical">Categorical Predictive Analysis</a>
+                </li>
+				<li>
+                    <a href="#conclusion">Conclusion</a>
+                </li>
+                <li>
+                    <a href="#footnote">Footnote</a>
+                </li>
+				<li>
+                    <a href="#"></a>
+                </li>
+				<li>
+                   <small>Hit Tab to Hide Menu</small>
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<div id="main-loader">
+							<center><h1 style="position: relative; top: 150px;">Loading Application</h1></center>
+							<div id="growthLoader" class="cssload-preloader cssload-loading" style="position: relative; top: 200px; ">
+									<span class="cssload-slice"></span>
+									<span class="cssload-slice"></span>
+									<span class="cssload-slice"></span>
+									<span class="cssload-slice"></span>
+									<span class="cssload-slice"></span>
+									<span class="cssload-slice"></span>
+								</div>
+							
+						</div>
+					</div>
+				</div>
+				<div id="stuff" style="display:none;">
+					<a href="#menu-toggle" class="btn btn-default" id="menu-toggle" style="position: fixed; z-index:100;">Toggle Menu</a>
+					<br>
+					<div class="row">
+						<div class="col-lg-12">
+							<center><h1>Temple University Data Analytics</h1>
+							<h3>AmerisourceBergen Challenge</h3>
+							<h1 id="intro">Introduction</h1></center>
+							<p>
+							   <center>It is recommended to use Google Chrome to view this application.</center><br>
+							   
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<center>
+						<h1 id="scatter">Scatter Plot Price vs Volume of Top Products by Revenue</h1>
+						
+							<div class="col-lg-6">
+								<h2>Top 3 Major Categories:</h2>
+								<ul style="list-style-type: none;">
+									<li>HOME HEALTH CARE - 30.87%</li>
+									<li>GREETING CARDS - 28.1% </li>
+									<li>HEALTH CARE - 22.85%</li>
+								</ul>
+							</div>
+							<div class="col-lg-6">
+								<h2>Bottom 3 Major Categories:</h2>
+								<ul style="list-style-type: none;">
+									<li>PHOTO - .02%</li>
+									<li>EDIBLES - 0.27% </li>
+									<li>MISC - 0.92%</li>
+								</ul>
+							</div>
+						</center>
+						<div class="col-lg-12">
+							<center>
+								<div id="scatterplot">
+								
+								</div>
+							</center>
+						</div>
+						<div class="col-lg-12">
+						<center>
+							<p>Graph Category Scatter Plot for Major: 
+							<select id="categoryScatter">
+								<option value="PHOTO">PHOTO</option>
+								<option value="DIABETES">DIABETES</option>
+								<option value="HOME HEALTH CARE" selected>HOME HEALTH CARE</option>
+								<option value="EDIBLES">EDIBLES</option>
+								<option value="MISC">MISC</option>
+								<option value="SPECIAL POS SCANS">SPECIAL POS SCANS</option>
+								<option value="HEALTH CARE">HEALTH CARE</option>
+								<option value="GENERAL MERCHANDISE">GENERAL MERCHANDISE</option>
+								<option value="BEAUTY">BEAUTY</option>
+								<option value="PERSONAL CARE">PERSONAL CARE</option>
+								<option value="GREETING CARDS">GREETING CARDS</option>
+							</select>
+							<button onclick="categoryScatter();" class="btn btn-primary">Graph</button>
+							<button onclick="hidecategoryScatter();" class="btn btn-default">Hide</button>
+							<br>
+							<div id="scatterplotCategory">
+							
+							</div>
+						</center>
+						</div>
+						<div class="col-lg-12">
+						<center>
+							<p>Graph Subcategory Scatter Plot for Category: <select id="subcategoryScatter"></select>
+							<button onclick="subcategoryScatter();" class="btn btn-primary">Graph</button>
+							<button onclick="hidesubcategoryScatter();" class="btn btn-default">Hide</button>
+							<br>
+							<div id="scatterplotSubcategory">
+							
+							</div>
+						</center>
+						</div>
+						<div class="col-lg-12">
+						<center>
+							<p>Graph Segment Scatter Plot for Subcategory: <select id="segmentScatter"></select>
+							<button onclick="segmentScatter();" class="btn btn-primary">Graph</button>
+							<button onclick="hidesegmentScatter();" class="btn btn-default">Hide</button>
+							<br>
+							<div id="scatterplotSegment">
+							
+							</div>
+						</center>
+						</div>
+					</div>
+					<div class="row">
+						<center>
+						<h1 id="column">Column Range Volume Analysis of Top Products by Revenue</h1>
+						
+							<div class="col-lg-6">
+								<h2>Top 3 Average Volume Categories:</h2>
+								<ul style="list-style-type: none;">
+									<li>PERSONAL CARE - 33.38 Units</li>
+									<li>GREETING CARDS - 16 Units</li>
+									<li>EDIBLES - 12.14 Units</li>
+								</ul>
+							</div>
+							<div class="col-lg-6">
+								<h2>Bottom 3 Average Volume Categories:</h2>
+								<ul style="list-style-type: none;">
+									<li>PHOTO - 1 Units</li>
+									<li>MISC - 2 Units</li>
+									<li>DIABETES - 3.81 Units</li>
+								</ul>
+							</div>
+						</center>
+						<div class="col-lg-12">
+							<center>
+								<div id="columnrange">
+								
+								</div>
+							</center>
+						</div>
+						<div class="col-lg-12">
+						<center>
+							<p>Graph Category Scatter Plot for Major: 
+							<select id="categoryColumn">
+								<option value="DIABETES">DIABETES</option>
+								<option value="HOME HEALTH CARE" selected>HOME HEALTH CARE</option>
+								<option value="EDIBLES">EDIBLES</option>
+								<option value="MISC">MISC</option>
+								<option value="SPECIAL POS SCANS">SPECIAL POS SCANS</option>
+								<option value="HEALTH CARE">HEALTH CARE</option>
+								<option value="GENERAL MERCHANDISE">GENERAL MERCHANDISE</option>
+								<option value="BEAUTY">BEAUTY</option>
+								<option value="PERSONAL CARE">PERSONAL CARE</option>
+								<option value="GREETING CARDS">GREETING CARDS</option>
+							</select>
+							<button onclick="categoryColumn();" class="btn btn-primary">Graph</button>
+							<button onclick="hidecategoryColumn();" class="btn btn-default">Hide</button>
+							<br>
+							<div id="columnCategory">
+							
+							</div>
+						</center>
+						</div>
+						<div class="col-lg-12">
+						<center>
+							<p>Graph Subcategory Scatter Plot for Category: <select id="subcategoryColumn"></select>
+							<button onclick="subcategoryColumn();" class="btn btn-primary">Graph</button>
+							<button onclick="hidesubcategoryColumn();" class="btn btn-default">Hide</button>
+							<br>
+							<div id="columnSubcategory">
+							
+							</div>
+						</center>
+						</div>
+						<div class="col-lg-12">
+						<center>
+							<p>Graph Segment Scatter Plot for Subcategory: <select id="segmentColumn"></select>
+							<button onclick="segmentColumn();" class="btn btn-primary">Graph</button>
+							<button onclick="hidesegmentColumn();" class="btn btn-default">Hide</button>
+							<br>
+							<div id="columnSegment">
+							
+							</div>
+						</center>
+						</div>
+					</div>
+					
+					<div class="row">
+						<center>
+						<h1 id="composition">Product Composition</h1>
+						
+							<div class="col-lg-12">
+								<h2>Top Prevalent Products in Baskets:</h2>
+								<ul style="list-style-type: none;">
+									<li>DME SALES - 3.82%</li>
+									<li>VITAMINS/SUPPLEMENTS - 1.84%</li>
+									<li>STAMPS - 1.64%</li>
+									<li>CARDS - 1.59%</li>
+									<li>DME - 1.46%</li>
+									<li>CANDY OPEN DEPARTMENT - 0.9%</li>
+									<li>FRAME - 0.85%</li>
+									<li>CIGARETTES - 0.7%</li>
+									<li>LOTTO - 0.67%</li>
+								</ul>
+							</div>
+						</center>
+						<div class="col-lg-12">
+							<center>
+								<div id="bubblechart">
+								
+								</div>
+							</center>
+						</div>
+						
+					</div>
+					
+					<div class="row">
+						<center>
+						<h1 id="categorical">Predictive Categorical Analysis</h1>
+						
+							<p>SVM Predictive Modeling</p>
+						</center>
+						<div class="col-lg-12">
+							<center>
+								<p>
+									Predict for a Product under Major: 
+									<select id="svmMajor">
+										<option value="DIABETES">DIABETES</option>
+										<option value="HOME HEALTH CARE" selected>HOME HEALTH CARE</option>
+										<option value="EDIBLES">EDIBLES</option>
+										<option value="MISC">MISC</option>
+										<option value="SPECIAL POS SCANS">SPECIAL POS SCANS</option>
+										<option value="HEALTH CARE">HEALTH CARE</option>
+										<option value="GENERAL MERCHANDISE">GENERAL MERCHANDISE</option>
+										<option value="BEAUTY">BEAUTY</option>
+										<option value="PERSONAL CARE">PERSONAL CARE</option>
+										<option value="GREETING CARDS">GREETING CARDS</option>
+									</select>
+									<br> in Category: <select id="svmCat"></select>
+									<br> in Subcategory: <select id="svmSub"></select>
+									<br> in Segment: <select id="svmSeg"></select>
+									<br>
+									Expected Volume Per Transaction: <input id="svmVol" type="number" min="1"/> &nbsp;
+									Expected Price: <input id="svmPrice" type="number" step="any" min="0.01"/> &nbsp;
+									<button class="btn btn-primary" onclick="predict()">Predict</button>
+								</p>
+								<br><br>
+								<div id="svmOut">
+								
+								</div>
+							</center>
+						</div>
+						
+					</div>
+					
+					<div class="row">
+						<center>
+						<h1 id="conclusion">Conclusion</h1>
+						
+							<p>SVM Predictive Modeling</p>
+						</center>
+						
+						
+					</div>
+					
+					<div class="row">
+						<center>
+						<h1 id="footnote">Footnote</h1>
+						<h5>Created By: Paul Gregotski (tuf41345) and Sohan Vijayanagar (tuf18506) Fox School of Business - Temple University</h5>
+						
+						<p>Source Code, Proposal Paper, Sources</p>
+						<a href=""><button class="btn btn-default">Source Code</button></a>
+						<a href=""><button class="btn btn-primary">Proposal Paper</button></a>
+						<a href="" download><button class="btn btn-info">SQL Sources</button></a>
+						</center>
+						
+						
+					</div>
+					
+				</div>
+				<!-- /#stuff -->
+           </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+	 <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/sortable.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="http://code.highcharts.com/highcharts-more.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/index.js"></script>
+	
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+	<script type="text/javascript">
+		$(window).on("load", function() {
+			setTimeout(function(){
+				   $("#main-loader").fadeOut("slow");
+				}, 4000);
+			setTimeout(function(){
+			   $("#stuff").fadeIn("slow");
+			}, 4000);
+		});
+	</script>
+</body>
+
+</html>
